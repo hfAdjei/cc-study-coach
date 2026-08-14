@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CC Study Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#top"><span class="brand-mark">C</span> CC Study Coach</a>
+        <div class="exam-chip">Exam target <strong>30 Sep</strong></div>
+      </header>
+
+      <section id="top" class="hero">
+        <div>
+          <p class="eyebrow">ISC2 CERTIFIED IN CYBERSECURITY</p>
+          <h1>Small steps.<br /><em>Strong security.</em></h1>
+          <p class="hero-copy">Your focused study space for the CC exam. Learn the concept, test it, and let your results shape the next session.</p>
+        </div>
+        <div class="countdown-card">
+          <span>TIME TO EXAM</span>
+          <strong id="daysLeft">—</strong>
+          <small>days to go</small>
+          <div class="progress-track"><div id="courseProgress" class="progress-fill"></div></div>
+          <p id="progressText">0 of 5 domains started</p>
+        </div>
+      </section>
+
+      <nav class="domain-nav" aria-label="CC domains">
+        <button class="domain-tab active" data-domain="security">01 <span>Security Principles</span></button>
+        <button class="domain-tab" data-domain="bcdr">02 <span>BC, DR &amp; Incident Response</span></button>
+        <button class="domain-tab" data-domain="access">03 <span>Access Controls</span></button>
+        <button class="domain-tab" data-domain="network">04 <span>Network Security</span></button>
+        <button class="domain-tab" data-domain="operations">05 <span>Security Operations</span></button>
+      </nav>
+
+      <section class="lesson-layout">
+        <article class="lesson-card">
+          <div class="lesson-heading">
+            <div><p class="eyebrow" id="domainLabel">DOMAIN 01 · 26% OF EXAM</p><h2 id="lessonTitle">Security Principles</h2></div>
+            <span id="statusPill" class="status-pill">IN PROGRESS</span>
+          </div>
+          <p id="lessonIntro" class="lesson-intro"></p>
+          <div id="concepts" class="concept-grid"></div>
+          <button id="markComplete" class="primary-button">Mark this domain complete <span>→</span></button>
+        </article>
+
+        <aside class="coach-card">
+          <div class="coach-icon">✦</div>
+          <p class="eyebrow">YOUR COACH SAYS</p>
+          <h3 id="coachTitle">A strong start</h3>
+          <p id="coachMessage">You already know RBAC, RPO, and hashing. Build the rest of the security vocabulary around those anchors.</p>
+          <div class="streak"><span>Study streak</span><strong id="streakCount">1 day</strong></div>
+        </aside>
+      </section>
+
+      <section class="quiz-section">
+        <div class="section-heading"><div><p class="eyebrow">CHECK YOUR THINKING</p><h2>Quick practice</h2></div><p id="quizProgress">Question 1 of 5</p></div>
+        <article id="quizCard" class="quiz-card">
+          <p id="questionTag" class="question-tag">SECURITY PRINCIPLES</p>
+          <h3 id="questionText"></h3>
+          <div id="answers" class="answers"></div>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+          <button id="nextQuestion" class="next-button" hidden>Next question <span>→</span></button>
+        </article>
+      </section>
+
+      <section class="notes-section">
+        <div class="section-heading"><div><p class="eyebrow">MAKE IT STICK</p><h2>Your study notes</h2></div><button id="saveNotes" class="text-button">Save notes</button></div>
+        <textarea id="notes" placeholder="Write the ideas you want to remember. For example: ‘RPO = acceptable data loss, measured in time.’"></textarea>
+        <p id="saveMessage" class="save-message"></p>
+      </section>
+    </main>
+    <footer>CC Study Coach · Based on the ISC2 CC exam domains · Study little and often.</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
