@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .playlist-box{border-top:1px solid var(--line);padding-top:20px;margin:0 0 26px}.playlist-box .eyebrow{margin-bottom:10px}.playlist-items{display:grid;gap:8px}.playlist-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 11px;border:1px solid var(--line);border-radius:9px;color:var(--ink);text-decoration:none;font-size:12px;font-weight:700}.playlist-item small{color:var(--muted);font-weight:500;white-space:nowrap}.playlist-item:hover{border-color:var(--forest)}.practice-controls{display:flex;align-items:center;gap:8px}.practice-controls label,.practice-controls select{font:11px 'DM Mono';color:var(--muted)}.practice-controls select{border:1px solid var(--line);border-radius:7px;background:var(--cream);padding:6px;color:var(--ink)}.practice-controls p{font:12px 'DM Mono';color:var(--muted);margin:0}@media(max-width:720px){.section-heading{align-items:flex-start;flex-direction:column}.practice-controls{flex-wrap:wrap}}
+    </style>
   </head>
   <body>
     <main class="shell">
@@ -47,6 +50,7 @@
           </div>
           <p id="lessonIntro" class="lesson-intro"></p>
           <div id="concepts" class="concept-grid"></div>
+          <div class="playlist-box"><p class="eyebrow">PLAYLIST PATH</p><div id="playlistItems" class="playlist-items"></div></div>
           <button id="markComplete" class="primary-button">Mark this domain complete <span>→</span></button>
         </article>
 
@@ -60,7 +64,7 @@
       </section>
 
       <section class="quiz-section">
-        <div class="section-heading"><div><p class="eyebrow">CHECK YOUR THINKING</p><h2>Quick practice</h2></div><p id="quizProgress">Question 1 of 5</p></div>
+        <div class="section-heading"><div><p class="eyebrow">CHECK YOUR THINKING</p><h2>Quick practice</h2></div><div class="practice-controls"><label for="difficulty">Level</label><select id="difficulty"><option value="Foundation">Foundation</option><option value="Exam">Exam-ready</option><option value="Challenge">Challenge</option></select><p id="quizProgress">Question 1 of 5</p></div></div>
         <article id="quizCard" class="quiz-card">
           <p id="questionTag" class="question-tag">SECURITY PRINCIPLES</p>
           <h3 id="questionText"></h3>
