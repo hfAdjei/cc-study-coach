@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css" />
     <style>
       .playlist-box{border-top:1px solid var(--line);padding-top:20px;margin:0 0 26px}.playlist-box .eyebrow{margin-bottom:10px}.playlist-items{display:grid;gap:8px}.playlist-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 11px;border:1px solid var(--line);border-radius:9px;color:var(--ink);text-decoration:none;font-size:12px;font-weight:700}.playlist-item small{color:var(--muted);font-weight:500;white-space:nowrap}.playlist-item:hover{border-color:var(--forest)}.practice-controls{display:flex;align-items:center;gap:8px}.practice-controls label,.practice-controls select{font:11px 'DM Mono';color:var(--muted)}.practice-controls select{border:1px solid var(--line);border-radius:7px;background:var(--cream);padding:6px;color:var(--ink)}.practice-controls p{font:12px 'DM Mono';color:var(--muted);margin:0}@media(max-width:720px){.section-heading{align-items:flex-start;flex-direction:column}.practice-controls{flex-wrap:wrap}}
-      .sources-section{margin-top:28px;background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:34px}.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}.source-card{border:1px solid var(--line);border-radius:10px;padding:16px;text-decoration:none;color:var(--ink)}.source-card strong{display:block;font-size:14px;margin-bottom:7px}.source-card span{color:var(--muted);font-size:12px;line-height:1.55}.source-card:hover{border-color:var(--forest)}@media(max-width:720px){.sources-section{padding:23px}.source-grid{grid-template-columns:1fr}}
+      .sources-section{margin-top:28px;background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:34px}.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}.source-card{border:1px solid var(--line);border-radius:10px;padding:16px;text-decoration:none;color:var(--ink)}.source-card strong{display:block;font-size:14px;margin-bottom:7px}.source-card span{color:var(--muted);font-size:12px;line-height:1.55}.source-card:hover{border-color:var(--forest)}@media(max-width:720px){.sources-section{padding:23px}.source-grid{grid-template-columns:1fr}}.challenge-section{margin-top:28px;border:1px solid var(--line);border-radius:18px;padding:34px;background:var(--cream)}.challenge-section>p{color:var(--muted);font-size:13px;line-height:1.6}.challenge-controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.challenge-controls select,.challenge-controls input{border:1px solid var(--line);border-radius:8px;padding:10px;background:white;color:var(--ink);font:12px Manrope}.challenge-controls input{width:94px}@media(max-width:720px){.challenge-section{padding:23px}.challenge-controls>*{width:100%}.challenge-controls input{width:100%}}
     </style>
   </head>
   <body>
@@ -86,6 +86,18 @@
         <div class="source-grid">
           <a class="source-card" href="https://github.com/irfan-sec/ISC2-Certified-in-Cybersecurity" target="_blank" rel="noopener"><strong>ISC2 Certified in Cybersecurity</strong><span>Five-domain notes, study guides, and 100+ practice questions. ↗</span></a>
           <a class="source-card" href="https://github.com/SudoHopeX/cc-practice-quiz" target="_blank" rel="noopener"><strong>CC Practice Quiz</strong><span>160+ configurable questions with instant feedback and progress tracking. ↗</span></a>
+        </div>
+      </section>
+
+      <section class="challenge-section">
+        <div class="section-heading"><div><p class="eyebrow">EXTERNAL CHALLENGE</p><h2>Bring back your result</h2></div><p id="challengeStatus">No result logged yet</p></div>
+        <p>Use either external source, then save your score here. Your next in-site session can focus on the domain you choose.</p>
+        <div class="challenge-controls">
+          <select id="challengeSource" aria-label="Challenge source"><option value="https://github.com/irfan-sec/ISC2-Certified-in-Cybersecurity">ISC2 CC study materials</option><option value="https://github.com/SudoHopeX/cc-practice-quiz">CC Practice Quiz</option></select>
+          <select id="challengeDomain" aria-label="Challenge domain"><option value="security">Security Principles</option><option value="bcdr">BC, DR &amp; Incident Response</option><option value="access">Access Controls</option><option value="network">Network Security</option><option value="operations">Security Operations</option></select>
+          <input id="challengeScore" type="number" min="0" max="100" placeholder="Score %" aria-label="Challenge score percentage" />
+          <button id="openChallenge" class="text-button">Open source ↗</button>
+          <button id="saveChallenge" class="primary-button">Save result <span>→</span></button>
         </div>
       </section>
     </main>
