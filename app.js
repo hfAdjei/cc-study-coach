@@ -23,7 +23,7 @@ add('bcdr', [['A service must be restored in four hours and lose no more than 30
 add('access', [['Clearances and document classifications determine access. This is:', ['DAC','RBAC','MAC','Least privilege'], 2, 'MAC uses centrally enforced labels and clearances.', 'Exam'], ['A clerk creates suppliers but cannot approve payments to them. This is:', ['Job rotation','Separation of duties','Single sign-on','Need to know'], 1, 'Splitting sensitive work reduces fraud and error.', 'Challenge']]);
 add('network', [['Which device can detect suspicious traffic and automatically block it?', ['Hub','IDS','IPS','Proxy'], 2, 'An IPS is inline and can block; an IDS mainly alerts.', 'Exam'], ['A web server is isolated from internal databases to limit compromise impact. This uses:', ['Network segmentation','Data retention','Hashing','Single sign-on'], 0, 'Segmentation reduces lateral movement and blast radius.', 'Challenge']]);
 add('operations', [['Which PKI component binds a public key to an identity?', ['Certificate','Hash','Firewall rule','Backup'], 0, 'A certificate contains identity and a public key, signed by a trusted authority.', 'Exam'], ['A payroll worker gets an urgent look-alike password-reset email. The best immediate action is to:', ['Use its link privately','Verify independently and report it','Forward it widely','Reply with credentials'], 1, 'Do not use embedded links; independently verify suspicious requests.', 'Challenge']]);
-const state = JSON.parse(localStorage.getItem('ccStudyCoach') || '{"completed":[],"notes":"","answered":0,"correct":0,"difficulty":"Foundation"}');
+const state = JSON.parse(localStorage.getItem('ccStudyCoach') || '{"completed":[],"notes":"","answered":0,"correct":0,"difficulty":"Foundation","challenge":null}');
 let selectedDomain = 'security', questionIndex = 0, answered = false;
 const $ = id => document.getElementById(id);
 function save(){localStorage.setItem('ccStudyCoach',JSON.stringify(state));}
@@ -37,4 +37,8 @@ $('markComplete').addEventListener('click',()=>{if(!state.completed.includes(sel
 $('nextQuestion').addEventListener('click',()=>{questionIndex++;renderQuestion();});
 $('difficulty').value=state.difficulty||'Foundation';$('difficulty').addEventListener('change',e=>{state.difficulty=e.target.value;questionIndex=0;save();renderQuestion();});
 $('notes').value=state.notes||'';$('saveNotes').addEventListener('click',()=>{state.notes=$('notes').value;save();$('saveMessage').textContent='Saved on this device.';setTimeout(()=>$('saveMessage').textContent='',2200);});
+function renderChallenge(){const c=state.challenge;if(!c)return;$('challengeStatus').textContent=`Last result: ${c.score}% · ${domains[c.domain].title}`;$('challengeDomain').value=c.domain;$('challengeScore').value=c.score;}
+$('openChallenge').addEventListener('click',()=>window.open($('challengeSource').value,'_blank','noopener'));
+$('saveChallenge').addEventListener('click',()=>{const score=Number($('challengeScore').value);if(!Number.isFinite(score)||score<0||score>100){$('challengeStatus').textContent='Enter a score from 0–100.';return;}state.challenge={score,domain:$('challengeDomain').value};save();renderChallenge();renderDomain(state.challenge.domain);$('challengeStatus').textContent=`Saved ${score}% · next focus: ${domains[state.challenge.domain].title}`;});
 $('daysLeft').textContent=daysToExam();$('streakCount').textContent=state.answered ? '1 day' : 'Start today';updateProgress();renderDomain(selectedDomain);
+renderChallenge();
