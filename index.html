@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css" />
     <style>
       .playlist-box{border-top:1px solid var(--line);padding-top:20px;margin:0 0 26px}.playlist-box .eyebrow{margin-bottom:10px}.playlist-items{display:grid;gap:8px}.playlist-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 11px;border:1px solid var(--line);border-radius:9px;color:var(--ink);text-decoration:none;font-size:12px;font-weight:700}.playlist-item small{color:var(--muted);font-weight:500;white-space:nowrap}.playlist-item:hover{border-color:var(--forest)}.practice-controls{display:flex;align-items:center;gap:8px}.practice-controls label,.practice-controls select{font:11px 'DM Mono';color:var(--muted)}.practice-controls select{border:1px solid var(--line);border-radius:7px;background:var(--cream);padding:6px;color:var(--ink)}.practice-controls p{font:12px 'DM Mono';color:var(--muted);margin:0}@media(max-width:720px){.section-heading{align-items:flex-start;flex-direction:column}.practice-controls{flex-wrap:wrap}}
+      .sources-section{margin-top:28px;background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:34px}.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}.source-card{border:1px solid var(--line);border-radius:10px;padding:16px;text-decoration:none;color:var(--ink)}.source-card strong{display:block;font-size:14px;margin-bottom:7px}.source-card span{color:var(--muted);font-size:12px;line-height:1.55}.source-card:hover{border-color:var(--forest)}@media(max-width:720px){.sources-section{padding:23px}.source-grid{grid-template-columns:1fr}}
     </style>
   </head>
   <body>
@@ -78,6 +79,14 @@
         <div class="section-heading"><div><p class="eyebrow">MAKE IT STICK</p><h2>Your study notes</h2></div><button id="saveNotes" class="text-button">Save notes</button></div>
         <textarea id="notes" placeholder="Write the ideas you want to remember. For example: ‘RPO = acceptable data loss, measured in time.’"></textarea>
         <p id="saveMessage" class="save-message"></p>
+      </section>
+
+      <section class="sources-section">
+        <div class="section-heading"><div><p class="eyebrow">STUDY SOURCES</p><h2>Extra practice</h2></div></div>
+        <div class="source-grid">
+          <a class="source-card" href="https://github.com/irfan-sec/ISC2-Certified-in-Cybersecurity" target="_blank" rel="noopener"><strong>ISC2 Certified in Cybersecurity</strong><span>Five-domain notes, study guides, and 100+ practice questions. ↗</span></a>
+          <a class="source-card" href="https://github.com/SudoHopeX/cc-practice-quiz" target="_blank" rel="noopener"><strong>CC Practice Quiz</strong><span>160+ configurable questions with instant feedback and progress tracking. ↗</span></a>
+        </div>
       </section>
     </main>
     <footer>CC Study Coach · Based on the ISC2 CC exam domains · Study little and often.</footer>
